@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import NoteForm from "./components/NoteForm";
+import NoteList from "./components/NoteList";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -44,35 +46,13 @@ function App() {
   return (
     <div style={{ padding: 20 }}>
       <h1>📝 Noted</h1>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          name="title"
-          placeholder="Title"
-          value={form.title}
-          onChange={handleChange}
-        />
-        <br />
-        <textarea
-          name="content"
-          placeholder="Content"
-          value={form.content}
-          onChange={handleChange}
-        />
-        <br />
-        <button type="submit">{editId ? "Update" : "Add"} Note</button>
-      </form>
-
-      <hr />
-
-      {notes.map((note) => (
-        <div key={note.id} style={{ marginBottom: 16 }}>
-          <h3>{note.title}</h3>
-          <p>{note.content}</p>
-          <button onClick={() => handleEdit(note)}>Edit</button>
-          <button onClick={() => handleDelete(note.id)}>Delete</button>
-        </div>
-      ))}
+      <NoteForm
+        form={form}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+        isEditing={!!editId}
+      />
+      <NoteList notes={notes} onEdit={handleEdit} onDelete={handleDelete} />
     </div>
   );
 }
