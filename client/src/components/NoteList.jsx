@@ -6,7 +6,7 @@ const NoteList = ({ notes, onEdit, onDelete }) => {
     <div>
       <hr />
       {notes.map((note) => (
-        <div key={note.id} style={{ marginBottom: 16 }}>
+        <div key={note._id} style={{ marginBottom: 16 }}>
           <h3>{note.title}</h3>
           <p>{note.content}</p>
           <button onClick={() => onEdit(note)}>Edit</button>

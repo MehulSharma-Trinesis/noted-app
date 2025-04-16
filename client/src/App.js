@@ -35,7 +35,7 @@ function App() {
 
   const handleEdit = (note) => {
     setForm({ title: note.title, content: note.content });
-    setEditId(note.id);
+    setEditId(note._id);
   };
 
   const handleDelete = async (id) => {
