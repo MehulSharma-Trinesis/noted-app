@@ -44,7 +44,7 @@ function App() {
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: "2rem", textAlign: "center" }}>
       <h1>📝 Noted</h1>
       <NoteForm
         form={form}
